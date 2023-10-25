@@ -1,0 +1,10 @@
+[Unit]
+Description=Eaai Scrapper
+
+[Service]
+Type=simple
+User=root
+ExecStart=/root/eaai_fastapi/startup.sh
+
+[Install]
+WantedBy=multi-user.target
