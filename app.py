@@ -17,12 +17,11 @@ def get_browser_driver():
     options = webdriver.ChromeOptions()
     options.headless = True
     # options.binary_location = "/snap/bin/chromium"
-    options.add_argument("--headless=new")
-    options.add_argument("--window-size=1280,700")
+    options.add_argument("--headless")
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--no-sandbox')
-    options.add_argument("--remote-debugging-port=9222")
-    options.add_argument("--log-level=3")
+    # options.add_argument("--remote-debugging-port=9222")
+    # options.add_argument("--log-level=3")
     return webdriver.Chrome(options=options)
 
 
@@ -63,7 +62,7 @@ async def internationals(option: str):
         return flights
     except Exception as e:
         browser.quit()
-        print(e)
+        return {'error': e}
 
 
 @app.get("/nationals")
